@@ -431,13 +431,14 @@ function Hero() {
       <div className="relative z-10 mx-auto grid w-full max-w-[1920px] grid-cols-1 gap-10 px-6 pb-20 md:px-12 lg:grid-cols-12">
         <div className="hero-copy lg:col-span-8">
           <p className="mb-6 text-sm font-bold uppercase tracking-section text-on-surface-variant">
-            Precision Engineering sinds 2009
+            Building Engineering sinds 2009
           </p>
-          <h1 className="max-w-5xl text-5xl font-bold leading-[1.02] tracking-normal text-primary md:text-7xl lg:text-8xl">
-            Ruwbouwwerken voor grote en kleine investeringen.
+          <h1 className="max-w-xl text-5xl font-bold leading-[1.02] tracking-normal text-primary md:text-7xl lg:text-8xl">
+            Solid Structure.
+            Strong Partnership.
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-8 text-on-surface-variant md:text-2xl">
-            Solid Structure. Strong Partnership. CONSTRUKTON bouwt aan
+             Ruwbouwwerken voor grote en kleine investeringen. CONSTRUKTON bouwt aan
             voorspelbare uitvoering voor ontwikkelaars, hoofdaannemers en
             professionele investeerders.
           </p>
