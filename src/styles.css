@@ -9,7 +9,8 @@
   background: #fcf9f8;
   font-family: "Futura PT", Futura, "Segoe UI", Arial, sans-serif;
   font-synthesis: none;
-  text-rendering: geometricPrecision;
+  font-stretch: normal;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,6 +28,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: "Futura PT", Futura, "Segoe UI", Arial, sans-serif;
+  font-stretch: normal;
 }
 
 .font-body,
