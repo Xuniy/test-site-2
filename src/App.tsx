@@ -32,8 +32,12 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 
+function publicAsset(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`
+}
+
 const images = {
-  hero: "/header.png",
+  hero: publicAsset("header.png"),
   services:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCJeZKboTxG999Pnqifj9KlfuEBfkFXVs1ZdOXlhtqXpfWWT-uliciAh_Np2jVeY_Y_0wN8vbe93Yz2xtbwRL3Dtkt0YFw340SzDSwwEpeEaz3PjENWRX1OsdQw2p6IuNMWkUXvLhAjVYdqjNM7VbH2Rb7nB7fd44I2vNg5My4xZfP-a3Ezq6Jcsv3AWRgOL4J_tecs8H10k6tU06GL0gT0dKwQMHoeNkNDWiP7GtMy5EGge4INZDwnIQCEfeBSDD1FvgWqEv5aHdI0",
   tower:
@@ -44,15 +48,15 @@ const images = {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCADy7C-o41XZTmnDwIsjv8K_kM7811Q9eTgR6c2OUcyBTs8mvTG9-1WOCRbt_rCRdY9PlPLduktLywQgA9p3TillClUvMulPbSkqeIxKBTkB8LbLYfQ3r-q6Y3d5XXoEHVhfsjYP0U6WZlmf5MV2ehcAY-znbmNhNUgMftSWJxui0diba1HmqB4o3bIyNyNKNniURAlxRnizMieMLv__MZWDguhyQhlLP9OZbupUKpQxiTOPUk4smfkCrFk6TgDJENr5oOsmxxgrFt",
 }
 
-const brandLogoPath = "/logo.png"
+const brandLogoPath = publicAsset("logo.png")
 
 function projectGallery(slug: string) {
   return [
-    `/projects/${slug}/01.jpg`,
-    `/projects/${slug}/02.jpg`,
-    `/projects/${slug}/03.jpg`,
-    `/projects/${slug}/04.jpg`,
-    `/projects/${slug}/05.jpg`,
+    publicAsset(`projects/${slug}/01.jpg`),
+    publicAsset(`projects/${slug}/02.jpg`),
+    publicAsset(`projects/${slug}/03.jpg`),
+    publicAsset(`projects/${slug}/04.jpg`),
+    publicAsset(`projects/${slug}/05.jpg`),
   ]
 }
 
