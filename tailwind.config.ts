@@ -76,9 +76,9 @@ export default {
         architectural: "0 24px 80px rgba(20, 7, 0, 0.10)",
       },
       fontFamily: {
-        headline: ["Futura PT", "Futura", "sans-serif"],
-        body: ["Futura PT", "Futura", "sans-serif"],
-        label: ["Futura PT", "Futura", "sans-serif"],
+        headline: ["Manrope", "Futura PT", "Futura", "sans-serif"],
+        body: ["Manrope", "Futura PT", "Futura", "sans-serif"],
+        label: ["Manrope", "Futura PT", "Futura", "sans-serif"],
       },
       letterSpacing: {
         section: "0.28em",

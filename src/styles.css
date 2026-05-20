@@ -5,7 +5,7 @@
 :root {
   color: #1c1b1b;
   background: #fcf9f8;
-  font-family: "Futura PT", Futura, sans-serif;
+  font-family: "Manrope", "Futura PT", Futura, sans-serif;
   font-synthesis: none;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -24,6 +24,13 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+}
+
+.font-body,
+.font-headline,
+.font-label {
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
 }
 
 button,
