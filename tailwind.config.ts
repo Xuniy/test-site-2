@@ -76,9 +76,30 @@ export default {
         architectural: "0 24px 80px rgba(20, 7, 0, 0.10)",
       },
       fontFamily: {
-        headline: ["Futura PT", "Futura", "Segoe UI", "Arial", "sans-serif"],
-        body: ["Futura PT", "Futura", "Segoe UI", "Arial", "sans-serif"],
-        label: ["Futura PT", "Futura", "Segoe UI", "Arial", "sans-serif"],
+        headline: [
+          "Futura PT",
+          "Century Gothic",
+          "Futura",
+          "Segoe UI",
+          "Arial",
+          "sans-serif",
+        ],
+        body: [
+          "Futura PT",
+          "Century Gothic",
+          "Futura",
+          "Segoe UI",
+          "Arial",
+          "sans-serif",
+        ],
+        label: [
+          "Futura PT",
+          "Century Gothic",
+          "Futura",
+          "Segoe UI",
+          "Arial",
+          "sans-serif",
+        ],
       },
       letterSpacing: {
         section: "0.28em",

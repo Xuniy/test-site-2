@@ -7,7 +7,7 @@
 :root {
   color: #1c1b1b;
   background: #fcf9f8;
-  font-family: "Futura PT", Futura, "Segoe UI", Arial, sans-serif;
+  font-family: "Futura PT", "Century Gothic", Futura, "Segoe UI", Arial, sans-serif;
   font-synthesis: none;
   font-stretch: normal;
   text-rendering: optimizeLegibility;
@@ -27,14 +27,21 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: "Futura PT", Futura, "Segoe UI", Arial, sans-serif;
+  font-family: "Futura PT", "Century Gothic", Futura, "Segoe UI", Arial, sans-serif;
   font-stretch: normal;
 }
 
 .font-body,
 .font-headline,
 .font-label {
-  font-family: "Futura PT", Futura, "Segoe UI", Arial, sans-serif;
+  font-family: "Futura PT", "Century Gothic", Futura, "Segoe UI", Arial, sans-serif;
+}
+
+html[lang="fr"] p:not(.font-bold),
+html[lang="fr"] li,
+html[lang="fr"] input,
+html[lang="fr"] textarea {
+  font-weight: 450;
 }
 
 button,
