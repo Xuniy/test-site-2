@@ -14,12 +14,11 @@ import {
   DraftingCompass,
   Factory,
   Grid2X2,
+  Linkedin,
   Mail,
   MapPin,
   Menu,
-  Pause,
   Phone,
-  Play,
   Ruler,
   ShieldCheck,
   X,
@@ -46,7 +45,6 @@ const images = {
 }
 
 const brandLogoPath = publicAsset("logo.png")
-const linkedinLogoPath = publicAsset("brand/linkedin-in.png")
 const linkedinCompanyUrl =
   "https://www.linkedin.com/company/construkton-bv-74a9992a7/"
 
@@ -111,10 +109,6 @@ const frenchTranslations: Record<string, string> = {
   "Vorige foto": "Photo précédente",
   "Volgende foto": "Photo suivante",
   "Toon foto": "Afficher la photo",
-  Dienstengalerij: "Galerie des services",
-  "Toon dienstenfoto": "Afficher la photo de service",
-  "Diavoorstelling pauzeren": "Mettre le diaporama en pause",
-  "Diavoorstelling hervatten": "Reprendre le diaporama",
   Referenties: "Références",
   "Wat zakelijke partners waarderen": "Ce que nos partenaires professionnels apprécient",
   "De samenwerking met CONSTRUKTON bij de volledige realisatie van de ruwbouwwerken voor het project “Bouwen van woongelegenheden, handelsgelijkvloers en garages” in Kortrijk verliep zeer vlot. We waarderen hun professionele aanpak, technische kennis en correcte uitvoering van de werken.":
@@ -193,19 +187,15 @@ function t(language: Language, text: string) {
   return language === "fr" ? frenchTranslations[text] ?? text : text
 }
 
-function projectGallery(projectNumber: number) {
+function projectGallery(slug: string) {
   return [
-    publicAsset(`projects/project-${projectNumber}/01.jpg`),
-    publicAsset(`projects/project-${projectNumber}/02.jpg`),
-    publicAsset(`projects/project-${projectNumber}/03.jpg`),
-    publicAsset(`projects/project-${projectNumber}/04.jpg`),
-    publicAsset(`projects/project-${projectNumber}/05.jpg`),
+    publicAsset(`projects/${slug}/01.jpg`),
+    publicAsset(`projects/${slug}/02.jpg`),
+    publicAsset(`projects/${slug}/03.jpg`),
+    publicAsset(`projects/${slug}/04.jpg`),
+    publicAsset(`projects/${slug}/05.jpg`),
   ]
 }
-
-const serviceGalleryCandidates = Array.from({ length: 5 }, (_, index) =>
-  publicAsset(`services/${String(index + 1).padStart(2, "0")}.jpg`),
-)
 
 const navItems = [
   { label: "Over ons", href: "#about" },
@@ -244,23 +234,23 @@ const values = [
 
 const services: Array<{ title: string; detail: string; icon: LucideIcon }> = [
   {
-    title: "Kelders en funderingswerken",
-    detail: "Uitvoering van funderingen, vloerplaten en ter plaatse gestorte buiten- en binnen kelderwanden.",
+    title: "Grond- en funderingswerken",
+    detail: "Voorbereiding, wapening, bekisting en controle op uitvoeringsniveau.",
     icon: Building2,
   },
   {
-    title: "Ter plaatse gestorte betonconstructies",
-    detail: "Realisatie van betonnen en gewapendbetonnen vloerplaten, wanden, kolommen en balken.",
+    title: "Betonconstructies en vloerplaten",
+    detail: "Technische realisatie van structurele betonwerken voor grotere volumes.",
     icon: DraftingCompass,
   },
   {
     title: "Montage van prefab betonelementen",
-    detail: "Vakkundige montage van prefabwanden, kolommen, balken, predalvloeren, Verbo-wanden en Prefaxis-wanden.",
+    detail: "Nauwkeurige plaatsing met oog voor planning, veiligheid en tolerantie.",
     icon: Factory,
   },
   {
-    title: "Metsel- en gevelwerken",
-    detail: "Uitvoering van dragende en niet-dragende wanden in betonblokken, kalkzandsteen (klein en grote formaat) en snelbouwsteen, evenals complete gevelwerken.",
+    title: "Metselwerken",
+    detail: "Dragend en niet-dragend metselwerk binnen een gecontroleerde werfflow.",
     icon: Grid2X2,
   },
 ]
@@ -271,7 +261,7 @@ const projects = [
     title: "The Zenith Tower",
     meta: "Antwerpen | Volledige ruwbouw",
     image: images.tower,
-    gallery: projectGallery(1),
+    gallery: projectGallery("zenith-tower"),
     alt: "Hoge moderne toren met glasgevels in stedelijke context",
     featured: true,
   },
@@ -280,7 +270,7 @@ const projects = [
     title: "The Obsidian Residence",
     meta: "Brussel | Betonstructuur en gevelwerk",
     image: images.residence,
-    gallery: projectGallery(2),
+    gallery: projectGallery("obsidian-residence"),
     alt: "Moderne donkere villa met betonmuren en grote ramen",
   },
   {
@@ -288,7 +278,7 @@ const projects = [
     title: "Logistiek Centrum Nexus",
     meta: "Gent | Industriële ruwbouw",
     image: images.warehouse,
-    gallery: projectGallery(3),
+    gallery: projectGallery("nexus-logistics"),
     alt: "Minimalistisch logistiek gebouw met betonnen lijnen en grote poorten",
   },
   {
@@ -296,7 +286,7 @@ const projects = [
     title: "Atlas Business Campus",
     meta: "Mechelen | Funderingswerken",
     image: images.services,
-    gallery: projectGallery(4),
+    gallery: projectGallery("atlas-business-campus"),
     alt: "Betonnen binnenstructuur met openingen en werflicht",
   },
   {
@@ -304,7 +294,7 @@ const projects = [
     title: "Rivage Offices",
     meta: "Brussel | Betonconstructies",
     image: images.tower,
-    gallery: projectGallery(5),
+    gallery: projectGallery("rivage-offices"),
     alt: "Modern kantoorgebouw met strakke gevel en stedelijke reflecties",
   },
   {
@@ -312,7 +302,7 @@ const projects = [
     title: "Northline Distribution Hub",
     meta: "Hasselt | Industriële vloerplaten",
     image: images.warehouse,
-    gallery: projectGallery(6),
+    gallery: projectGallery("northline-distribution-hub"),
     alt: "Logistiek gebouw met betonnen structuur en grote toegangspoorten",
   },
   {
@@ -320,7 +310,7 @@ const projects = [
     title: "Vesta Parking Structure",
     meta: "Leuven | Prefab montage",
     image: images.services,
-    gallery: projectGallery(7),
+    gallery: projectGallery("vesta-parking-structure"),
     alt: "Ruwbouwstructuur met prefab betonelementen en diepe schaduw",
   },
   {
@@ -328,7 +318,7 @@ const projects = [
     title: "Terra Nova Residences",
     meta: "Namen | Metselwerk en gevelwerk",
     image: images.residence,
-    gallery: projectGallery(8),
+    gallery: projectGallery("terra-nova-residences"),
     alt: "Hedendaagse residentiële architectuur met donkere betonlijnen",
   },
   {
@@ -336,7 +326,7 @@ const projects = [
     title: "Meridian Hotel",
     meta: "Oostende | Structurele ruwbouw",
     image: images.tower,
-    gallery: projectGallery(9),
+    gallery: projectGallery("meridian-hotel"),
     alt: "Hoogbouwvolume met glas, beton en verticale ritmiek",
   },
   {
@@ -344,7 +334,7 @@ const projects = [
     title: "Apex Health Hub",
     meta: "Kortrijk | Totaalaanneming ruwbouw",
     image: images.warehouse,
-    gallery: projectGallery(10),
+    gallery: projectGallery("apex-health-hub"),
     alt: "Grootschalig utilitair gebouw met minimalistische betonafwerking",
   },
 ]
@@ -727,76 +717,6 @@ function WhyUs({ language }: { language: Language }) {
 }
 
 function Services({ language }: { language: Language }) {
-  const [serviceImages, setServiceImages] = useState([images.services])
-  const [currentServiceImage, setCurrentServiceImage] = useState(0)
-  const [isServiceAutoplayPaused, setIsServiceAutoplayPaused] =
-    useState(false)
-  const [isServiceInteractionPaused, setIsServiceInteractionPaused] =
-    useState(false)
-
-  useEffect(() => {
-    let isCancelled = false
-
-    const imageChecks = serviceGalleryCandidates.map(
-      (src) =>
-        new Promise<string | null>((resolve) => {
-          const candidate = new Image()
-
-          candidate.onload = () => resolve(src)
-          candidate.onerror = () => resolve(null)
-          candidate.src = src
-        }),
-    )
-
-    void Promise.all(imageChecks).then((results) => {
-      if (isCancelled) return
-
-      const availableImages = results.filter(
-        (src): src is string => src !== null,
-      )
-
-      setServiceImages(
-        availableImages.length > 0 ? availableImages : [images.services],
-      )
-      setCurrentServiceImage(0)
-    })
-
-    return () => {
-      isCancelled = true
-    }
-  }, [])
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches
-
-    if (
-      serviceImages.length <= 1 ||
-      isServiceAutoplayPaused ||
-      isServiceInteractionPaused ||
-      prefersReducedMotion
-    ) {
-      return
-    }
-
-    const timeout = window.setTimeout(() => {
-      setCurrentServiceImage(
-        (current) => (current + 1) % serviceImages.length,
-      )
-    }, 5000)
-
-    return () => window.clearTimeout(timeout)
-  }, [
-    currentServiceImage,
-    isServiceAutoplayPaused,
-    isServiceInteractionPaused,
-    serviceImages.length,
-  ])
-
-  const activeServiceImage =
-    serviceImages[currentServiceImage] ?? images.services
-
   return (
     <section
       className="relative overflow-hidden bg-surface-container-low py-24 md:py-32"
@@ -820,7 +740,7 @@ function Services({ language }: { language: Language }) {
 
               return (
                 <article
-                  className="lift-card group grid grid-cols-[auto_1fr] items-center gap-5 bg-surface-container-lowest p-5 shadow-hairline md:p-6"
+                  className="lift-card group grid grid-cols-[auto_1fr_auto] items-center gap-5 bg-surface-container-lowest p-5 shadow-hairline md:p-6"
                   key={service.title}
                   data-reveal
                   style={revealDelay(120 + index * 70)}
@@ -836,6 +756,7 @@ function Services({ language }: { language: Language }) {
                       {t(language, service.detail)}
                     </p>
                   </div>
+                  <ArrowUpRight className="hidden size-5 text-primary opacity-0 transition-opacity group-hover:opacity-100 sm:block" />
                 </article>
               )
             })}
@@ -844,88 +765,16 @@ function Services({ language }: { language: Language }) {
 
         <div className="relative pt-10 lg:pt-20" data-reveal style={revealDelay(180)}>
           <div className="absolute left-0 top-0 z-0 size-24 bg-primary-fixed lg:-left-10 lg:-top-10" />
-          <div
-            className="relative z-10 overflow-hidden"
-            role="region"
-            aria-label={t(language, "Dienstengalerij")}
-            onMouseEnter={() => setIsServiceInteractionPaused(true)}
-            onMouseLeave={() => setIsServiceInteractionPaused(false)}
-            onFocusCapture={() => setIsServiceInteractionPaused(true)}
-            onBlurCapture={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) {
-                setIsServiceInteractionPaused(false)
-              }
-            }}
-          >
+          <div className="relative z-10 overflow-hidden">
             <img
-              key={activeServiceImage}
-              className="service-image-cycle aspect-[3/4] w-full object-cover grayscale transition-[filter] duration-700 hover:grayscale-0"
-              src={activeServiceImage}
-              alt={`${t(
+              className="aspect-[3/4] w-full object-cover grayscale transition-all duration-700 hover:scale-[1.02] hover:grayscale-0"
+              src={images.services}
+              alt={t(
                 language,
                 "Interieur van een betonnen gebouw in aanbouw met daglicht door structurele openingen",
-              )} — ${currentServiceImage + 1}/${serviceImages.length}`}
+              )}
               loading="lazy"
-              decoding="async"
-              onError={(event) => {
-                if (event.currentTarget.dataset.fallback === "true") return
-
-                event.currentTarget.dataset.fallback = "true"
-                event.currentTarget.src = images.services
-              }}
             />
-
-            <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-primary/[.88] px-4 py-2 text-white backdrop-blur-sm md:gap-4 md:px-5">
-              <p className="shrink-0 text-xs font-bold uppercase tracking-[0.18em]">
-                {String(currentServiceImage + 1).padStart(2, "0")} /{" "}
-                {String(serviceImages.length).padStart(2, "0")}
-              </p>
-
-              <div className="flex min-w-0 flex-1 items-center gap-1.5 md:gap-2">
-                {serviceImages.map((image, index) => (
-                  <button
-                    key={image}
-                    type="button"
-                    className="group/indicator flex h-10 min-w-0 flex-1 items-center"
-                    aria-label={`${t(language, "Toon dienstenfoto")} ${index + 1}`}
-                    aria-current={
-                      index === currentServiceImage ? "true" : undefined
-                    }
-                    onClick={() => setCurrentServiceImage(index)}
-                  >
-                    <span
-                      className={cn(
-                        "block h-1.5 w-full bg-white/35 transition-colors duration-300 group-hover/indicator:bg-white/70",
-                        index === currentServiceImage && "bg-white",
-                      )}
-                    />
-                  </button>
-                ))}
-              </div>
-
-              {serviceImages.length > 1 ? (
-                <button
-                  type="button"
-                  className="flex size-10 shrink-0 items-center justify-center border border-white/45 text-white transition-colors hover:bg-white hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  aria-label={t(
-                    language,
-                    isServiceAutoplayPaused
-                      ? "Diavoorstelling hervatten"
-                      : "Diavoorstelling pauzeren",
-                  )}
-                  aria-pressed={isServiceAutoplayPaused}
-                  onClick={() =>
-                    setIsServiceAutoplayPaused((isPaused) => !isPaused)
-                  }
-                >
-                  {isServiceAutoplayPaused ? (
-                    <Play className="size-4" fill="currentColor" />
-                  ) : (
-                    <Pause className="size-4" fill="currentColor" />
-                  )}
-                </button>
-              ) : null}
-            </div>
           </div>
         </div>
       </div>
@@ -1330,13 +1179,8 @@ function Contact({ language }: { language: Language }) {
 
           <div className="relative z-10 flex w-full flex-col justify-between">
             <div>
-              <div className="flex size-16 items-center justify-center bg-white p-2">
-                <img
-                  className="h-full w-full object-contain"
-                  src={linkedinLogoPath}
-                  alt=""
-                  aria-hidden="true"
-                />
+              <div className="flex size-16 items-center justify-center bg-[#0a66c2] text-white">
+                <Linkedin className="size-8" aria-hidden="true" />
               </div>
               <p className="mt-10 text-xs font-bold uppercase tracking-[0.22em] text-primary-fixed-dim">
                 LinkedIn
