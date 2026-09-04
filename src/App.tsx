@@ -588,13 +588,13 @@ function Hero({ language }: { language: Language }) {
           <p className="mb-6 text-sm font-bold uppercase tracking-section text-on-surface-variant">
             {t(language, "Building Engineering sinds 2009")}
           </p>
-          <h1 className="max-w-xl text-5xl font-bold leading-[1.02] tracking-normal text-primary md:text-7xl lg:text-8xl">
+          <h1 className="max-w-xl text-5xl font-bold leading-[1.02] tracking-normal text-primary md:text-5xl lg:text-6xl">
             {t(language, "Solid Structure. Strong Partnership.")}
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-8 text-on-surface-variant md:text-2xl">
             {t(
               language,
-              "Ruwbouwwerken voor grote en kleine investeringen. CONSTRUKTON bouwt aan voorspelbare uitvoering voor ontwikkelaars, hoofdaannemers en professionele investeerders.",
+              "Ruwbouwwerken voor projecten van elke omvang. CONSTRUKTON biedt projectontwikkelaars, hoofdaannemers en professionele investeerders een betrouwbare en voorspelbare uitvoering.",
             )}
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -1263,6 +1263,7 @@ function Testimonials({ language }: { language: Language }) {
                 <div className="flex size-12 items-center justify-center bg-primary-container text-sm font-bold text-primary-fixed-dim">
                   {testimonial.name
                     .split(" ")
+                    .slice(0, 2)
                     .map((part) => part[0])
                     .join("")}
                 </div>
