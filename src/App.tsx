@@ -34,7 +34,7 @@ function publicAsset(path: string) {
 }
 
 const images = {
-  hero: publicAsset("header.png"),
+  hero: publicAsset("header.jpeg"),
   services:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCJeZKboTxG999Pnqifj9KlfuEBfkFXVs1ZdOXlhtqXpfWWT-uliciAh_Np2jVeY_Y_0wN8vbe93Yz2xtbwRL3Dtkt0YFw340SzDSwwEpeEaz3PjENWRX1OsdQw2p6IuNMWkUXvLhAjVYdqjNM7VbH2Rb7nB7fd44I2vNg5My4xZfP-a3Ezq6Jcsv3AWRgOL4J_tecs8H10k6tU06GL0gT0dKwQMHoeNkNDWiP7GtMy5EGge4INZDwnIQCEfeBSDD1FvgWqEv5aHdI0",
   tower:
